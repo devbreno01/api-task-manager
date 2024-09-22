@@ -13,35 +13,34 @@ use Illuminate\Support\Facades\Route;
     })->middleware('auth:sanctum'); */
 
 
-   Route::get('/', [HomeController::class, 'index'])->name('home');
-   Route::post('/user/login',[AuthController::class, 'login']);
-
+     Route::get('/', [HomeController::class, 'index'])->name('home');
+     Route::post('/user/login',[AuthController::class, 'login']);
+  
+      //logica
+      Route::get('/start/task/{id}', [TaskController::class, 'startTask']);
+      Route::get('/pause/task/{id}', [TaskController::class, 'pauseTask']);
+      Route::get('/unpause/task/{id}', [TaskController::class, 'unpauseTask']);
+      Route::get('/finish/task/{id}', [TaskController::class, 'finishTask']);
    
-   Route::group(['middleware' => ['auth:sanctum']], function(){
+     Route::group(['middleware' => ['auth:sanctum']], function(){
 
+        Route::post('/user/logout',[AuthController::class, 'logout']);
         //Responsáveis
         Route::get('/users', [UserController::class, 'showAll']);
 
         //Category
-        Route::post('/category/create', [CategoryController::class, 'store']);
-        Route::put('/category/{id}', [CategoryController::class, 'update']);
-        Route::get('/category/{id}', [CategoryController::class, 'show']);
-        Route::get('/categories', [CategoryController::class, 'showAll']);
-        Route::delete('/category/{id}', [CategoryController::class, 'destroy']);
+          Route::post('/category/create', [CategoryController::class, 'store']);
+          Route::put('/category/{id}', [CategoryController::class, 'update']);
+          Route::get('/category/{id}', [CategoryController::class, 'show']);
+          Route::get('/categories', [CategoryController::class, 'showAll']);
+          Route::delete('/category/{id}', [CategoryController::class, 'destroy']);
 
-        //task
-        Route::post('/task/create', [TaskController::class, 'store']);
-        Route::put('/task/{id}', [TaskController::class, 'update']);
-        Route::get('/task/{id}', [TaskController::class, 'show']);
-        Route::get('/tasks', [TaskController::class, 'showAll']);
-        Route::delete('/task/{id}', [TaskController::class, 'destroy']);
-
-        //logica
-        Route::get('/start/task/{id}', [TaskController::class, 'startTask']);
-        Route::get('/pause/task/{id}', [TaskController::class, 'pauseTask']);
-        Route::get('/unpause/task/{id}', [TaskController::class, 'unpauseTask']);
-        Route::get('/finish/task/{id}', [TaskController::class, 'finishTask']);
-
+       //task
+          Route::post('/task/create', [TaskController::class, 'store']);
+          Route::put('/task/{id}', [TaskController::class, 'update']);
+          Route::get('/task/{id}', [TaskController::class, 'show']);
+          Route::get('/tasks', [TaskController::class, 'showAll']);
+          Route::delete('/task/{id}', [TaskController::class, 'destroy']);
    });
   
         //Responsaveis

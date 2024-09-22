@@ -5,7 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-//1|tnUYW0Z7TQANtW9D7XxyRHPQmVImUFM0PanmQYQ669dca1e2
+//2|XpOzhgHFTbdR5d4aYnIQUrz7hAkxLF9yYHjdsqLbfd9c845a
 class AuthController extends Controller
 {
     public function login(Request $request){
@@ -19,7 +19,15 @@ class AuthController extends Controller
                                     'message' =>'Senha ou email incorretos'], 403);
     }
 
-    public function logout(){
+    public function logout(Request $request){
+        if($request->user()->currentAccessToken()->delete()){
+            return response()->json(["status" => "sucess", 
+                                'message' => "Deslogado"], 200);
+        } else {
+            return response()->json(["status" => "failed", 
+                                    "messag'" => "Falha ao tentar deslogar"], 500);
+        }
+
         
     }
 }
