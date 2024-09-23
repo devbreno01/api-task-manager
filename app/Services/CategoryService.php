@@ -5,7 +5,7 @@ namespace App\Services;
 use Illuminate\Support\Facades\Request;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Repositories\CategoryRepositoryInterface;
-
+use App\Http\Resources\CategoryResource;
 
 class CategoryService {
     private $categoryRepository;
@@ -31,19 +31,23 @@ class CategoryService {
     public function show(int $id)
     {
         $category = $this->categoryRepository->show($id);
-        if(!$category){
-            return response()->json(["message" => "Categoria não encontrada"], 500);
+        if(empty($category)){
+            return response()->json(["message" => "Categoria não encontrada"], 404);
         }
-        return response()->json(["Categoria" => $category], 200);
+        return new CategoryResource($category);
+        //return response()->json(['category' => $category]);
     }
 
 
     public function showAll(){
         $categories = $this->categoryRepository->showAll();
-        if(!$categories){
-            return response()->json(["message" => "Nenhum categoria encontrada"], 500);
+        
+        if (empty($categories)) {
+            return response()->json(["message" => "Nenhuma categoria encontrada"], 404);
         }
-        return response()->json($categories, 200);
+    
+        return CategoryResource::collection($categories);
+       
     }
 
     public function update(StoreCategoryRequest $request, int $id)

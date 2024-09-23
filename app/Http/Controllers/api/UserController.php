@@ -20,7 +20,7 @@ class UserController extends Controller
             if(!$userInsert) {
                 return response()->json(["Message" => "Erro ao tentar cadastrar responsavel no banco de dados"],400);
             }
-            return response()->json(["success" => true, "Message" => "Responsável criado com sucesso" ,"data" => $validateData],201);
+            return response()->json(["success" => true, "Message" => "Responsável criado com sucesso" ,"data" =>  $userInsert],201);
         } else {
             return response()->json([ "Message" => "Erro ao tentar cadastrar responsavel no banco de dados"],400);
         }

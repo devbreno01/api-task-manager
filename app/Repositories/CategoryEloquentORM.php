@@ -18,11 +18,12 @@ class CategoryEloquentORM implements CategoryRepositoryInterface{
     }
 
     public function show(int $id){
-        return $this->categoryModel->find($id);
+        return $this->categoryModel->with('tasks')->find($id);
     }
 
     public function showAll(){
-        return $this->categoryModel->paginate(2);
+        return $this->categoryModel->with('tasks')->paginate(2);
+       
     }
 
     public function update($validatedData , int $id){
@@ -32,7 +33,6 @@ class CategoryEloquentORM implements CategoryRepositoryInterface{
             return $category->update($validatedData);
         }
   
-
     }
     public function destroy(int $id){
         $category = $this->categoryModel->find($id);
