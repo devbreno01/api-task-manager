@@ -24,6 +24,7 @@ class StoreUserRequest extends FormRequest
         $rules = [
             "name" => "required|string",
             "email" => "required|string|email|unique:users,email",
+            "password" => "required"
 
         ];
         if($this->method() === 'PUT'){

@@ -6,6 +6,8 @@ use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\CategoryEloquentORM;
 use App\Repositories\TaskEloquentORM;
 use App\Repositories\TaskRepositoryInterface;
+use App\Repositories\UserEloquentORM;
+use App\Repositories\UserRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind(
             TaskRepositoryInterface::class , TaskEloquentORM::class
+        );
+
+        $this->app->bind(
+            UserRepositoryInterface::class, UserEloquentORM::class
         );
     }
 

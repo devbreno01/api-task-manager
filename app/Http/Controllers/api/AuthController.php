@@ -5,9 +5,9 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-//2|XpOzhgHFTbdR5d4aYnIQUrz7hAkxLF9yYHjdsqLbfd9c845a
 
-//3|BGCxI7EOAvah5eEZkLleydskf57XPSO7C9FAHYaod464debf
+
+// token => 3|BGCxI7EOAvah5eEZkLleydskf57XPSO7C9FAHYaod464debf
 class AuthController extends Controller
 {
     public function login(Request $request){
@@ -30,6 +30,5 @@ class AuthController extends Controller
                                     "messag'" => "Falha ao tentar deslogar"], 500);
         }
 
-        
     }
 }

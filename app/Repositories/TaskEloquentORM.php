@@ -30,7 +30,7 @@ class TaskEloquentORM implements TaskRepositoryInterface{
     public function destroy(int $id){
         $task = $this->taskModel->find($id);
        
-        if ($task) {
+        if($task){
             return $task->delete();
         }
     }
