@@ -54,6 +54,11 @@ Operações: \
 - Se a tarefa já foi iniciada, não há como iniciar de novo 
 - Você pode fianlizar uma tarefa sem necessáriamente pausar e despausa-la 
 
+## Futuras melhorias 
+- Criar niveis de acesso
+- Rodar um docker file 
+- Criar repository e service para o Auth
+
 ## Endpoints 
 - Os endpoints estão com livre acesso para no arquivo: "endpoints.md"
     - 
