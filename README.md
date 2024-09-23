@@ -25,6 +25,13 @@ Operações: \
         \
     - Demonstrar tarefas com categoria, responsável e suas movimentações de Início, Pausa e Finalização, demonstrando o tempo gasto.
 
+## Ferramentas necessárias:
+
+- PHP 8+ 
+- Composer
+- Mysql 
+- Postman(ou um software de sua preferência para enviar requisições)
+
 ## Pastas
 .
 ├── app                            
