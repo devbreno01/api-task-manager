@@ -115,12 +115,17 @@ class TaskService {
         $task = $this->taskRepository->findById($id); 
 
         //não pode despausar uma tarefa não foi inicializada
-        if($task->status === true || empty($task->beggining)){
+        if($task->status === true && empty($task->beggining)){
             return response()->json(["message" => "Tarefa não foi iniciada"],400);
         }
         //não pode despausar uma tarefa se não foi pausada
         if(empty($task->break_began)){
             return response()->json(["message" => "Tarefa não foi pausada, é necessário que a tarefa seja pausada para despausar"],400);
+        }
+
+        if(!empty($task->finishing)){
+            return response()->json(["message" => "Impossibilidade de despausar pois a tarefa já foi finalizada"],400);
+
         }
         $task->status = true;
         $task->break_finished = Carbon::now();
