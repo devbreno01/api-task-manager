@@ -33,10 +33,10 @@ use Illuminate\Support\Facades\Route;
          Route::get('/tasks', [TaskController::class, 'showAll']);
          Route::delete('/task/{id}', [TaskController::class, 'destroy']);
 
-      Route::get('/start/task/{id}', [TaskController::class, 'startTask']);
-      Route::get('/pause/task/{id}', [TaskController::class, 'pauseTask']);
-      Route::get('/unpause/task/{id}', [TaskController::class, 'unpauseTask']);
-      Route::get('/finish/task/{id}', [TaskController::class, 'finishTask']);
+         Route::get('/start/task/{id}', [TaskController::class, 'startTask']);
+         Route::get('/pause/task/{id}', [TaskController::class, 'pauseTask']);
+         Route::get('/unpause/task/{id}', [TaskController::class, 'unpauseTask']);
+         Route::get('/finish/task/{id}', [TaskController::class, 'finishTask']);
    });
   
         
