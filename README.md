@@ -60,7 +60,7 @@ Operações: \
 - Criar repository e service para o Auth
 
 ## Endpoints 
-- Os endpoints estão com livre acesso para no arquivo: "endpoints.md"
+- Os endpoints estão com livre acesso  no arquivo: "endpoints.md"
     - 
     
 
