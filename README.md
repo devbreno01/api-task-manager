@@ -1,7 +1,7 @@
 
 # API Task Manager
 
-API feita devido a minha participação no teste técnico (w5i)
+API feita devido a minha participação no teste técnico
 
 
 ## O que foi pedido:

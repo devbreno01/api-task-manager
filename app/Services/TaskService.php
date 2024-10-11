@@ -125,7 +125,6 @@ class TaskService {
 
         if(!empty($task->finishing)){
             return response()->json(["message" => "Impossibilidade de despausar pois a tarefa já foi finalizada"],400);
-
         }
         $task->status = true;
         $task->break_finished = Carbon::now();
